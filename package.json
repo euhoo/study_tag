@@ -1,0 +1,42 @@
+{
+  "name": "tag_euhoo",
+  "version": "1.0.1",
+  "description": "tag game",
+  "scripts": {
+    "test": "jest",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "binary": "dist/bin/binary.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "easy-design tag game"
+  ],
+  "author": "Euhoo",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node",
+    "bail": true
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.0.0",
+    "lodash": "*"
+  },
+  "dependencies": {}
+}
