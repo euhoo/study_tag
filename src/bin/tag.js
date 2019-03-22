@@ -1,6 +1,5 @@
-const values = [8, 3, 2, 9, 11, 15, 5, 1, 7, 6, 13, 4, 12, 10, 14];
-
-const generatePlayingField = () => {
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+const generatePlayingField = (items) => {
   const tableEl = document.createElement('table');
 
   tableEl.className = 'table-bordered';
@@ -12,20 +11,46 @@ const generatePlayingField = () => {
       if (i === 3 && j === 3) {
         cell.classList.add('table-active');
       } else {
-        cell.textContent = values[i + (j * 4)];
+        cell.textContent = items[i + (j * 4)];
       }
     }
   }
   return tableEl;
 };
 
-// BEGIN (write your solution here)
-const findEl = el => ({ row: el.closest('tr').rowIndex, cell: el.cellIndex });
-export default () => {
-  const div = document.getElementsByClassName('gem-puzzle')[0];
-  div.appendChild(generatePlayingField());
-  const table = div.firstChild;
+const coordinateChange = {
+  ArrowDown: [-1, 0],
+  ArrowUp: [1, 0],
+  ArrowLeft: [0, 1],
+  ArrowRight: [0, -1],
+};
 
+const app = () => {
+  const randomized = values; // randomize(values);
+  const div = document.querySelector('.gem-puzzle');
+  div.appendChild(generatePlayingField(randomized));
+  const table = document.querySelector('table');
+  document.addEventListener('keyup', ({ key }) => {
+    const emptyCell = document.querySelector('.table-active');
+    const passive = {
+      row: emptyCell.closest('tr').rowIndex,
+      cell: emptyCell.cellIndex,
+    };
+    const active = {
+      row: passive.row + coordinateChange[key][0],
+      cell: passive.cell + coordinateChange[key][1],
+    };
+    Object.keys(active).forEach((el) => {
+      if (active[el] > 3) active[el] = 3;
+      if (active[el] < 0) active[el] = 0;
+    });
+    const numCell = table.rows[active.row].cells[active.cell];
+    emptyCell.classList.remove('table-active');
+    numCell.classList.add('table-active');
+    [emptyCell.textContent, numCell.textContent] = [numCell.textContent, emptyCell.textContent];
+  });
+
+  const findEl = el => ({ row: el.closest('tr').rowIndex, cell: el.cellIndex });
   const changeDiv = ({ target }) => {
     const passive = table.getElementsByClassName('table-active')[0];
 
@@ -41,3 +66,5 @@ export default () => {
   };
   table.addEventListener('click', changeDiv);
 };
+
+app();
