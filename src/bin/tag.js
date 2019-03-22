@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const generatePlayingField = (items) => {
   const tableEl = document.createElement('table');
@@ -25,8 +27,8 @@ const coordinateChange = {
   ArrowRight: [0, -1],
 };
 
-const app = () => {
-  const randomized = values; // randomize(values);
+export default (randomize = _.shuffle) => {
+  const randomized = randomize(values);
   const div = document.querySelector('.gem-puzzle');
   div.appendChild(generatePlayingField(randomized));
   const table = document.querySelector('table');
@@ -66,5 +68,3 @@ const app = () => {
   };
   table.addEventListener('click', changeDiv);
 };
-
-app();
