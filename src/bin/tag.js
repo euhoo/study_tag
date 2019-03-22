@@ -1,3 +1,5 @@
+// import _ from 'lodash';
+
 const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const generatePlayingField = (items) => {
   const tableEl = document.createElement('table');
@@ -25,13 +27,13 @@ const coordinateChange = {
   ArrowRight: [0, -1],
 };
 
-const app = () => {
+export default (/*randomize = _.shuffle*/) => {
   const randomized = values; // randomize(values);
-  const div = document.querySelector('.gem-puzzle');
+  const div = document.getElementsByClassName('gem-puzzle')[0];
   div.appendChild(generatePlayingField(randomized));
-  const table = document.querySelector('table');
+  const table = document.querySelectorAll('table')[0];
   document.addEventListener('keyup', ({ key }) => {
-    const emptyCell = document.querySelector('.table-active');
+    const emptyCell = document.getElementsByClassName('table-active')[0];
     const passive = {
       row: emptyCell.closest('tr').rowIndex,
       cell: emptyCell.cellIndex,
@@ -50,5 +52,3 @@ const app = () => {
     [emptyCell.textContent, numCell.textContent] = [numCell.textContent, emptyCell.textContent];
   });
 };
-
-app();
