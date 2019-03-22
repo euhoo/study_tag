@@ -49,6 +49,22 @@ const app = () => {
     numCell.classList.add('table-active');
     [emptyCell.textContent, numCell.textContent] = [numCell.textContent, emptyCell.textContent];
   });
+
+  const findEl = el => ({ row: el.closest('tr').rowIndex, cell: el.cellIndex });
+  const changeDiv = ({ target }) => {
+    const passive = table.getElementsByClassName('table-active')[0];
+
+    const before = findEl(passive);
+    const after = findEl(target);
+    const dist = Math.abs(after.row - before.row) + Math.abs(after.cell - before.cell);
+
+    if (dist < 2) {
+      passive.classList.remove('table-active');
+      target.classList.add('table-active');
+      [passive.textContent, target.textContent] = [target.textContent, passive.textContent];
+    }
+  };
+  table.addEventListener('click', changeDiv);
 };
 
 app();

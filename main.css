@@ -1,0 +1,14 @@
+td:hover {
+ background-color: #8fbc8f;
+ opacity: 0.5;
+ 
+ border-radius: 120px;
+}
+td {
+width:100px;
+height: 100px;
+text-align: center;
+}
+table {
+    margin: auto;
+}
