@@ -1,4 +1,4 @@
-import app from './bin/tag';
+import app from './tag';
 import './style.css';
 
 app();
