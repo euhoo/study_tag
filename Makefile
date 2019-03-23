@@ -6,3 +6,8 @@ build:
 
 watch:
 	npm run watch
+
+server:
+	nmp server
+	Open browser at:
+	http://localhost:8080

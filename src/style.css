@@ -12,3 +12,7 @@ text-align: center;
 table {
     margin: auto;
 }
+.some {
+    background-color: red;
+    opacity: 0.2;
+}
