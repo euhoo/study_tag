@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export default (items) => {
   const tableEl = document.createElement('table');
 

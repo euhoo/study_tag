@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const coordinateChange = {
   ArrowDown: [-1, 0],
   ArrowUp: [1, 0],

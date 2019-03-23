@@ -11,6 +11,7 @@ export default (table) => {
     if (dist === 1) {
       passive.classList.remove('table-active');
       target.classList.add('table-active');
+      /* eslint no-param-reassign: "error" */
       [passive.textContent, target.textContent] = [target.textContent, passive.textContent];
     }
   });

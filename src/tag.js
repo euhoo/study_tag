@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import _ from 'lodash';
 import generatePlayingField from './makeTable';
 import makeKeyEvents from './keyboardEvents';
