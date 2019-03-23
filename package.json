@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "prepublishOnly": "npm run build"
+    "watch": "webpack --watch"
   },
   "bin": {
     "binary": "dist/bin/binary.js"

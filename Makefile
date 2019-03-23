@@ -17,4 +17,4 @@ test:
 	npm test
 
 watch:
-	jest --watch
+	npm run watch
