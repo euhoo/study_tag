@@ -17,7 +17,7 @@
   "keywords": [
     "easy-design tag game"
   ],
-  "author": "Euhoo",
+  "author": "Evgeniy Kvach",
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",

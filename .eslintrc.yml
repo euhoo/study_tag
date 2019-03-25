@@ -5,7 +5,6 @@ extends:
   - 'airbnb-base'
 
 plugins:
- # https://github.com/babel/eslint-plugin-babel
   - babel
 
 parser: babel-eslint
